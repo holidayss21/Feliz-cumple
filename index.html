@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <script>
+  // Cambiá "1234" por la contraseña que vos quieras
+  const claveCorrecta = "guggi"; 
+  
+  let intento = prompt("🔒 Esta sorpresa es privada. Ingresá la contraseña:");
+  
+  while (intento !== claveCorrecta) {
+    if (intento === null) {
+      // Si cancela, recarga o no muestra nada
+      document.write("Acceso denegado.");
+      window.stop();
+      break;
+    }
+    intento = prompt("❌ Contraseña incorrecta. Intentalo de nuevo:");
+  }
+</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cumpleaños</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #050814;
+      color: #f0e6d2;
+      font-family: 'Montserrat', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px 100px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+      z-index: -2;
+    }
+
+    .star {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      height: 2px;
+      background: linear-gradient(-45deg, #ffffff, rgba(0, 0, 255, 0));
+      filter: drop-shadow(0 0 6px #ffffff);
+      animation: tail 3s ease-in-out infinite, falling 3s ease-in-out infinite;
+      z-index: -1;
+      opacity: 0.7;
+    }
+
+    .star::before, .star::after {
+      content: '';
+      position: absolute;
+      top: calc(50% - 1px);
+      right: 0;
+      height: 2px;
+      background: linear-gradient(-45deg, rgba(0, 0, 255, 0), #ffffff, rgba(0, 0, 255, 0));
+      transform: translateX(50%) rotate(45deg);
+      border-radius: 100%;
+      animation: shining 3s ease-in-out infinite;
+    }
+
+    .star::after {
+      transform: translateX(50%) rotate(-45deg);
+    }
+
+    .star:nth-child(1) { top: 10%; left: 80%; animation-delay: 0s; }
+    .star:nth-child(2) { top: 20%; left: 40%; animation-delay: 1.2s; }
+    .star:nth-child(3) { top: 5%;  left: 20%; animation-delay: 2.5s; }
+    .star:nth-child(4) { top: 35%; left: 90%; animation-delay: 3.8s; }
+
+    @keyframes tail {
+      0% { width: 0; }
+      30% { width: 100px; }
+      100% { width: 0; }
+    }
+
+    @keyframes shining {
+      0% { width: 0; }
+      50% { width: 30px; }
+      100% { width: 0; }
+    }
+
+    @keyframes falling {
+      0% { transform: translateX(0) translateY(0) rotate(-45deg); }
+      100% { transform: translateX(-400px) translateY(400px) rotate(-45deg); }
+    }
+
+    /* Encabezado */
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      color: #e2c976;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      text-shadow: 0 0 10px rgba(226, 201, 118, 0.3);
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: #d1d5db;
+      font-weight: 300;
+    }
+
+    /* Galería y Marcos */
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      width: 100%;
+      max-width: 380px;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .frame {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      padding: 12px;
+      background: rgba(15, 23, 42, 0.6);
+      border: 2px solid #c5a059;
+      box-shadow: 0 0 15px rgba(197, 160, 89, 0.2), inset 0 0 15px rgba(0, 0, 0, 0.8);
+      position: relative;
+      border-radius: 4px;
+      backdrop-filter: blur(4px);
+    }
+
+    .frame::after {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      border: 1px solid rgba(197, 160, 89, 0.5);
+      pointer-events: none;
+    }
+
+    .frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 100% 20%;
+      display: block;
+      border-radius: 2px;
+    }
+
+    /* Texto pie de foto */
+    .caption {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      color: #f3e8ca;
+      text-align: center;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+    }
+
+    .music-player {
+      position: fixed;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 360px;
+      background: rgba(10, 15, 30, 0.85);
+      border: 1px solid #c5a059;
+      padding: 10px 15px;
+      border-radius: 25px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+    }
+
+    audio {
+      width: 100%;
+      height: 32px;
+    }
+    
+    .letter-section {
+      width: 100%;
+      max-width: 380px;
+      margin-top: 20px;
+    }
+
+    .letter-card {
+      background: rgba(15, 23, 42, 0.75);
+      border: 2px solid #c5a059;
+      border-radius: 6px;
+      padding: 25px 20px;
+      position: relative;
+      box-shadow: 0 0 20px rgba(197, 160, 89, 0.25), inset 0 0 15px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(6px);
+    }
+
+    .letter-card::after {
+      content: '';
+      position: absolute;
+      inset: 5px;
+      border: 1px solid rgba(197, 160, 89, 0.4);
+      pointer-events: none;
+    }
+
+    .letter-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      color: #e2c976;
+      text-align: center;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+
+    .letter-content {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #f3e8ca;
+      font-weight: 300;
+      text-align: left;
+      white-space: pre-line; 
+    }
+
+    .letter-signature {
+      margin-top: 20px;
+      text-align: right;
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      color: #e2c976;
+      font-style: italic;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Elementos para la animación de estrellas fugaces -->
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+
+  <header>
+    <h1> ✨¡Feliz Cumpleaños! ¡Lara!✨</h1>
+  </header>
+
+  <main class="gallery">
+    <!-- Foto 1 (Ejemplo: con la clase 'posicion-arriba' para subir el encuadre si la cara se corta) -->
+    <div class="card">
+      <div class="frame">
+        <img src="f1.jpg" alt= class="posicion-arriba">
+      </div>
+    </div>
+
+    <!-- Foto 2 (Centrada por defecto, o podés agregarle alguna clase si hace falta) -->
+    <div class="card">
+      <div class="frame">
+        <img src="f2.jpg" alt="Un Momento Inolvidable">
+      </div>
+    </div>
+
+    <!-- Foto 3 (Centrada por defecto) -->
+    <div class="card">
+      <div class="frame">
+        <img src="f3.jpg" alt="Nuestro Recuerdo">
+      </div>
+    </div>
+  </main>
+
+  <!-- Reproductor de Música -->
+  <div class="music-player">
+    <audio controls autoplay loop>
+      <source src="airbag.mp3" type="audio/mpeg">
+      Tu navegador no soporta el reproductor de audio.
+    </audio>
+  </div>
+    <!-- Sección de la Carta -->
+  <section class="letter-section">
+    <div class="letter-card">
+      <h2 class="letter-title"> De mi para vos</h2>
+      <div class="letter-content">
+        ¡Feliz cumpleaños, enana! Te deseo un año lleno de alegrías y metas por cumplir. No soy bueno dejando mensajes, pero quería prepararte esta pequeña sorpresa para celebrar tu día.
+        
+        
+        Aún recuerdo el día que comenzamos a hablar... un chiste malo que hice jsjs, pero eso me dio lugar para conocer a una chica ¡INCREÍBLE! con sus defectos... un poco malumorada, olvidadiza y con sus cambios de humor jsjs, pero también muy inteligente, divertida, graciosa, astuta, curiosa, muy chusma 😄 y por sobre todo una persona con un gran corazón con los suyos.
+        Por eso y mucho más te mereces lo mejor, quiero que sigas creciendo y mejorando en lo que ames hacer, se que habrá días buenos y otros que serán malos, pero eso te ayudará a crecer y tomar decisiones en base a lo que dicte tu corazón, cuídate mucho, Te amamos y queremos ❤️
+       
+      </div>
+      <p class="letter-signature">Con mucho cariño, BR,  Silvestre,Ojitos claros, Christian</p>
+    </div>
+  </section>
+  
+
+</body>
+</html>
