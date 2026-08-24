@@ -250,6 +250,58 @@
       color: #e2c976;
       font-style: italic;
     }
+      /* --- NUEVOS ESTILOS PARA EL TÍTULO (PEGAR AL FINAL) --- */
+
+.main-title-container {
+    display: flex !important;
+    flex-direction: column !important; /* Fuerza las dos líneas */
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 90% !important; /* Evita que toque los bordes */
+    margin: 40px auto !important; /* Espacio arriba y abajo, centrado */
+    padding: 0 !important;
+}
+
+/* Estilo para "¡FELIZ CUMPLEAÑOS!" */
+.text-feliz {
+    color: #d4af37 !important; /* Tu color dorado */
+    font-family: 'Playfair Display', serif !important; /* O tu fuente elegante */
+    
+    /* TAMAÑO MÁS PEQUEÑO AQUÍ */
+    font-size: 26px !important; /* Ajustá este número si lo querés aún más chico */
+    
+    font-weight: 600 !important;
+    letter-spacing: 2px !important;
+    margin: 0 0 5px 0 !important; /* Espacio pequeño abajo */
+    padding: 0 !important;
+    line-height: 1.2 !important;
+    text-shadow: 0px 2px 4px rgba(0,0,0,0.5) !important;
+}
+
+/* Estilo para "¡LARA!" */
+.text-lara {
+    color: #d4af37 !important;
+    font-family: 'Playfair Display', serif !important;
+    
+    /* TAMAÑO RESALTADO PERO MÁS CHICO AQUÍ */
+    font-size: 38px !important; /* Ajustá este número también */
+    
+    font-weight: bold !important;
+    letter-spacing: 3px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.1 !important;
+    text-shadow: 0px 2px 5px rgba(0,0,0,0.6) !important;
+}
+
+/* Asegurar que se vea bien en celulares muy chicos */
+@media (max-width: 400px) {
+    .text-feliz { font-size: 22px !important; }
+    .text-lara { font-size: 32px !important; }
+}
+      
 
   </style>
 </head>
