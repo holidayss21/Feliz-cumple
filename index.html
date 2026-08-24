@@ -310,7 +310,20 @@
       <p class="letter-signature">Con mucho cariño, BR,  Silvestre,Ojitos claros, Christian</p>
     </div>
   </section>
-  
+      <!-- Todo tu código de la página va antes -->
 
-</body>
+    <!-- Pega esto exactamente antes de </html> -->
+    <script>
+      document.addEventListener('click', function() {
+        var audio = document.getElementById('musica');
+        if (audio) {
+          audio.play().catch(function(error) {
+            console.log("Error al reproducir audio:", error);
+          });
+        }
+      }, { once: true });
+        <audio id="musica" src="Airbag.mp3" loop></audio>
+        
+    </script>
+  </body>
 </html>
