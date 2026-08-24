@@ -319,18 +319,33 @@ document.addEventListener('click', (e) => {
     .text-lara { font-size: 32px !important; }
 }
       
-/* ANIMACIÓN DE FLORES AL TOCAR */
+/* ANIMACIÓN DE FLORES (MANTENIDA 1 SEGUNDO Y DESVANECIDO RÁPIDO AL FINAL) */
 .flor-animada {
-    position: absolute; /* Cambiado a absolute para que siga las coordenadas del scroll */
+    position: absolute;
     font-size: 1.8rem;
     pointer-events: none;
     z-index: 9999;
     transform: translate(-50%, -50%);
-    animation: flotarYDesaparecer 1.5s ease-out forwards;
+    animation: flotarYDesaparecer 1.2s ease-out forwards;
 }
 
+@keyframes flotarYDesaparecer {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    75% { 
+        /* Se mantiene totalmente visible y en su lugar durante el 75% del tiempo (~0.9s) */
+        opacity: 1;
+        transform: translate(-50%, -70px) scale(1.2);
+    }
+    100% {
+        /* Desaparece rápido en el último tramo */
+        opacity: 0;
+        transform: translate(-50%, -100px) scale(1);
+    }
 
-  </style>
+    </style>
 </head>
 <body>
 
