@@ -2,21 +2,21 @@
 <html lang="es">
 <head>
     <script>
-  // Cambiá "1234" por la contraseña que vos quieras
+        
   const claveCorrecta = "guggi"; 
   
   let intento = prompt("🔒 Esta sorpresa es privada. Ingresá la contraseña:");
   
   while (intento !== claveCorrecta) {
     if (intento === null) {
-      // Si cancela, recarga o no muestra nada
+      
       document.write("Acceso denegado.");
       window.stop();
       break;
     }
     intento = prompt("❌ Contraseña incorrecta. Intentalo de nuevo:");
   }
-    // EFECTO DE FLORES AL TOCAR O HACER CLIC (CORREGIDO CON SCROLL)
+    // Efecto flores
 document.addEventListener('click', (e) => {
     const flores = ['🌸', '🌺', '🌻', '🌹', '🌷', '💐', '🌼'];
     const flor = document.createElement('span');
@@ -24,7 +24,6 @@ document.addEventListener('click', (e) => {
     flor.innerHTML = flores[Math.floor(Math.random() * flores.length)];
     flor.className = 'flor-animada';
     
-    // pageX y pageY detectan el punto exacto aunque haya scroll
     flor.style.left = e.pageX + 'px';
     flor.style.top = e.pageY + 'px';
     
@@ -120,8 +119,7 @@ document.addEventListener('click', (e) => {
       0% { transform: translateX(0) translateY(0) rotate(-45deg); }
       100% { transform: translateX(-400px) translateY(400px) rotate(-45deg); }
     }
-
-    /* Encabezado */
+    /*encabezado*/
     header {
       text-align: center;
       margin-bottom: 30px;
@@ -195,7 +193,7 @@ document.addEventListener('click', (e) => {
       border-radius: 2px;
     }
 
-    /* Texto pie de foto */
+    /* Texto de foto */
     .caption {
       margin-top: 10px;
       font-size: 0.95rem;
@@ -279,7 +277,7 @@ document.addEventListener('click', (e) => {
       color: #e2c976;
       font-style: italic;
     }
-      /* --- NUEVOS ESTILOS PARA EL TÍTULO (PEGAR AL FINAL) --- */
+      /* --- Estilo Titulos --- */
 
 .main-title-container {
     display: flex !important;
@@ -328,7 +326,7 @@ document.addEventListener('click', (e) => {
     .text-lara { font-size: 32px !important; }
 }
       
-/* ANIMACIÓN DE FLORES (MANTENIDA 1 SEGUNDO Y DESVANECIDO RÁPIDO AL FINAL) */
+/* Animacion de flores */
 .flor-animada {
     position: absolute;
     font-size: 1.8rem;
@@ -344,12 +342,12 @@ document.addEventListener('click', (e) => {
         transform: translate(-50%, -50%) scale(1);
     }
     75% { 
-        /* Se mantiene totalmente visible y en su lugar durante el 75% del tiempo (~0.9s) */
+        
         opacity: 1;
         transform: translate(-50%, -70px) scale(1.2);
     }
     100% {
-        /* Desaparece rápido en el último tramo */
+        /* Desaparece rápido */
         opacity: 0;
         transform: translate(-50%, -100px) scale(1);
     }
@@ -358,7 +356,7 @@ document.addEventListener('click', (e) => {
 </head>
 <body>
 
-  <!-- Elementos para la animación de estrellas fugaces -->
+  <!-- Estrellas fugaces -->
   <div class="star"></div>
   <div class="star"></div>
   <div class="star"></div>
@@ -370,7 +368,7 @@ document.addEventListener('click', (e) => {
   </header>
 
   <main class="gallery">
-    <!-- Foto 1 (Ejemplo: con la clase 'posicion-arriba' para subir el encuadre si la cara se corta) -->
+
     <div class="card">
       <div class="frame">
         <img src="f1.jpg" alt= class="posicion-arriba">
@@ -378,15 +376,13 @@ document.addEventListener('click', (e) => {
         <p class='caption'> Te Deseo 🎁</p>
     </div>
 
-    <!-- Foto 2 (Centrada por defecto, o podés agregarle alguna clase si hace falta) -->
-    <div class="card">
+      <div class="card">
       <div class="frame">
-        <img src="f2.jpg" alt="Un Momento Inolvidable">
+        <img src="f2.jpg" alt="Un Momento">
       </div>
         <p class='caption'>Un Feliz💫</p>
     </div>
-
-    <!-- Foto 3 (Centrada por defecto) -->
+      
     <div class="card">
       <div class="frame">
         <img src="f3.jpg" alt="Nuestro Recuerdo">
@@ -419,9 +415,7 @@ document.addEventListener('click', (e) => {
       <p class="letter-signature">Con mucho cariño, BR,  Silvestre,Ojitos claros, Christian</p>
     </div>
   </section>
-      <!-- Todo tu código de la página va antes -->
-
-    <!-- Pega esto exactamente antes de </html> -->
+    
     <script>
       document.addEventListener('click', function() {
         var audio = document.getElementById('musica');
