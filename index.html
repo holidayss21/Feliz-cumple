@@ -16,6 +16,25 @@
     }
     intento = prompt("❌ Contraseña incorrecta. Intentalo de nuevo:");
   }
+        // EFECTO DE FLORES AL TOCAR O HACER CLIC
+document.addEventListener('click', (e) => {
+    
+    const flores = ['🌸', '🌺', '🌻', '🌹', '🌷', '💐', '🌼'];
+    const flor = document.createElement('span');
+
+    flor.innerHTML = flores[Math.floor(Math.random() * flores.length)];
+    flor.className = 'flor-animada';
+
+    flor.style.left = e.clientX + 'px';
+    flor.style.top = e.clientY + 'px';
+    
+    document.body.appendChild(flor);
+    
+    setTimeout(() => {
+        flor.remove();
+    }, 1500);
+});
+
 </script>
 
   <meta charset="UTF-8">
